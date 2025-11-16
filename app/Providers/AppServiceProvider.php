@@ -2,8 +2,10 @@
 
     namespace App\Providers;
 
+    use Barryvdh\Debugbar\Facades\Debugbar;
     use Carbon\CarbonImmutable;
     use Illuminate\Database\Eloquent\Model;
+    use Illuminate\Foundation\AliasLoader;
     use Illuminate\Support\Facades\Date;
     use Illuminate\Support\Facades\Vite;
     use Illuminate\Support\Facades\DB;
@@ -17,7 +19,8 @@
          */
         public function register(): void
         {
-            //
+            $loader = AliasLoader::getInstance();
+            $loader->alias('Debugbar', Debugbar::class);
         }
 
         /**
